@@ -1,0 +1,3 @@
+cmake .. -DEIGEN3_INCLUDE_DIR=E:\eigen -DN3L_INCLUDE_DIR=E:\LibN3L-2.0
+
+-l -train C:\Users\yunan\Desktop\ml_data\corpus\train.txt -dev C:\Users\yunan\Desktop\ml_data\corpus\dev.txt -test C:\Users\yunan\Desktop\ml_data\corpus\test.txt

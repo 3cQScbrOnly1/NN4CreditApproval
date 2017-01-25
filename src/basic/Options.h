@@ -1,5 +1,5 @@
-#ifndef _OPTIONS_
-#define _OPTIONS_
+#ifndef _PARSER_OPTIONS_
+#define _PARSER_OPTIONS_
 
 #pragma once
 
@@ -29,8 +29,11 @@ public:
   int hiddenSize;
   int rnnHiddenSize;
   int wordEmbSize;
+  int featEmbSize;
   int wordcontext;
+  int featContext;
   bool wordEmbFineTune;
+  bool featEmbFineTune;
 
   int charEmbSize;
   int charcontext;
@@ -75,10 +78,13 @@ public:
     hiddenSize = 100;
     rnnHiddenSize = 100;
     wordEmbSize = 50;
+	featEmbSize = 50;
     wordcontext = 2;
     wordEmbFineTune = true;
+	featEmbFineTune = true;
     charEmbSize = 50;
     charcontext = 2;
+    featContext = 2;
     charEmbFineTune = true;
     charhiddenSize = 50;
 
@@ -143,8 +149,17 @@ public:
         wordcontext = atoi(pr.second.c_str());
       if (pr.first == "wordEmbSize")
         wordEmbSize = atoi(pr.second.c_str());
+
+      if (pr.first == "featEmbSize")
+		  featEmbSize = atoi(pr.second.c_str());
+      if (pr.first == "featContext")
+		  featContext = atoi(pr.second.c_str());
+
       if (pr.first == "wordEmbFineTune")
         wordEmbFineTune = (pr.second == "true") ? true : false;
+      if (pr.first == "featEmbFineTune")
+        featEmbFineTune = (pr.second == "true") ? true : false;
+
       if (pr.first == "charcontext")
         charcontext = atoi(pr.second.c_str());
       if (pr.first == "charEmbSize")
@@ -208,8 +223,11 @@ public:
     std::cout << "hiddenSize = " << hiddenSize << std::endl;
     std::cout << "rnnHiddenSize = " << rnnHiddenSize << std::endl;
     std::cout << "wordEmbSize = " << wordEmbSize << std::endl;
+    std::cout << "featEmbSize = " << featEmbSize << std::endl;
+    std::cout << "featContext = " << featContext << std::endl;
     std::cout << "wordcontext = " << wordcontext << std::endl;
     std::cout << "wordEmbFineTune = " << wordEmbFineTune << std::endl;
+    std::cout << "featEmbFineTune = " << featEmbFineTune << std::endl;
     std::cout << "charEmbSize = " << charEmbSize << std::endl;
     std::cout << "charcontext = " << charcontext << std::endl;
     std::cout << "charEmbFineTune = " << charEmbFineTune << std::endl;

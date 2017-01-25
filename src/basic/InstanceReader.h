@@ -1,5 +1,5 @@
-#ifndef _READER_
-#define _READER_
+#ifndef _CONLL_READER_
+#define _CONLL_READER_
 
 #include "Reader.h"
 #include "N3L.h"
@@ -26,13 +26,11 @@ public:
 
 
 		vector<string> vecInfo;
-		split_bychars(strLine, vecInfo, ",");
+		split_bychar(strLine, vecInfo, ',');
 		m_instance.allocate(vecInfo.size() - 1);
 		m_instance.m_label = vecInfo[vecInfo.size() - 1];
 
-		vector<string> words;
-		split_bychars(vecInfo[1], words, " ");
-		m_instance.m_feats = words;
+		m_instance.m_feats.assign(vecInfo.begin(), vecInfo.end() - 1);
 		return &m_instance;
 	}
 };

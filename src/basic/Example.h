@@ -9,11 +9,11 @@ using namespace std;
 class Feature
 {
 public:
-	vector<string> feats;
+	vector<string> m_feats;
 public:
 	void clear()
 	{
-		feats.clear();
+		m_feats.clear();
 	}
 };
 
